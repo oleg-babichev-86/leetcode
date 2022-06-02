@@ -1,0 +1,24 @@
+class Solution(object):
+    def largestPerimeter(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        nums = sorted(nums)[::-1]
+        
+        # there are more then 3
+        for i in range(len(nums)):
+            max_num = nums[i]
+            left = i + 1 
+            right = i + 2  
+
+            while right < len(nums):
+                two_low = nums[left] + nums[right]
+
+                if two_low <= max_num:
+                    break
+
+                else:
+                    return two_low + max_num
+
+        return 0
