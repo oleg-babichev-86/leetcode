@@ -1,0 +1,17 @@
+class Solution(object):
+    def nearestValidPoint(self, x, y, points):
+        """
+        :type x: int
+        :type y: int
+        :type points: List[List[int]]
+        :rtype: int
+        """
+        ans = -1
+        small = float('inf')
+        for i in points[::-1]:
+            if x == i[0] or y == i[1]:
+                curr = abs(x-i[0]) + abs(y-i[1])
+                if curr <= small:
+                    small = curr
+                    ans = points.index(i)
+        return ans
