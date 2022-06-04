@@ -1,0 +1,31 @@
+class Solution(object):
+    def matrixReshape(self, mat, r, c):
+        """
+        :type mat: List[List[int]]
+        :type r: int
+        :type c: int
+        :rtype: List[List[int]]
+        """
+        mat_rows = len(mat)
+        mat_cols = len(mat[0])
+        
+        # Check if a matrix of r*c is impossible from mat:
+        if r * c != mat_rows * mat_cols:
+            return mat
+        
+        # Get all the numbers into a 1D array:
+        flat = []
+        for i in range(mat_rows):
+            for j in range(mat_cols):
+                flat.append(mat[i][j])
+
+        # Build r*c array using values from the 1d array:
+        reshaped = []
+        flat_index = 0
+        for i in range(r):
+            row_list = []
+            for j in range(c):
+                row_list.append(flat[flat_index])
+                flat_index += 1
+            reshaped.append(row_list)
+        return reshaped
