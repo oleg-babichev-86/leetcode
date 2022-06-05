@@ -1,0 +1,13 @@
+class Solution(object):
+    def sumOddLengthSubarrays(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: int
+        """
+        output=0
+        # i: index/position of the start number
+        for i in range(0,len(arr)):
+            #j: number of elements included, 1,3,5...
+            for j in range(1,len(arr)-i+1,2):
+                output=output+sum(arr[i:i+j])
+        return output
