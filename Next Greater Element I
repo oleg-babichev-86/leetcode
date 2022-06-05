@@ -1,0 +1,26 @@
+class Solution(object):
+    def nextGreaterElement(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        ans=[]
+        
+        for i in range(len(nums1)):
+            
+            #declaring flag value
+            f=0
+            
+            #looping through sliced list of nums2
+            for j in nums2[nums2.index(nums1[i]):]:
+                
+                #finding greater element
+                if nums1[i]<j:
+                    ans.append(j)
+                    f=1
+                    break
+            if f==0:
+                ans.append(-1)       
+                    
+        return ans
