@@ -1,0 +1,22 @@
+class Solution(object):
+    def isHappy(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        history_list = []
+        
+        while n != 1:
+            s = str(n)
+            ttl = 0
+            for c in s:
+                ttl += int(c) ** 2
+            
+            if ttl in history_list:
+                return False
+            
+            history_list.append(ttl)
+            
+            n = ttl
+        
+        return True
