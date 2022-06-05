@@ -1,0 +1,17 @@
+class Solution(object):
+    def arraySign(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        result = 0
+        
+        if 0 in nums:
+            return result
+        else:
+            prod = 1
+            for num in nums:
+                prod *= num
+            result = 1 if prod > 0 else -1
+        
+        return result
